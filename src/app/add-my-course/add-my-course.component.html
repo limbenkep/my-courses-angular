@@ -1,0 +1,12 @@
+<section class="addCourse">
+    <form name="addCourse">
+        <Label>Course code:
+            <input [(ngModel)]="courseCode" name="courseCode" />
+        </Label>&nbsp;
+        <Label>Status:
+            <input [(ngModel)]="status" name="status" placeholder="" />
+        </Label>&nbsp;
+        <!-- calls addUser method on each click-->
+        <span class="button add" (click)="addMyCourse()">Add</span>
+    </form>
+</section>

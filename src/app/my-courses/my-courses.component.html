@@ -1,0 +1,26 @@
+<app-course-filter (findCoursesEvent) = "filterText($event)"></app-course-filter>
+<app-add-my-course (newCourseEvent)="addMyCourse($event)"></app-add-my-course>
+<section class="courses">
+    <table>
+        <thead>
+            <tr>
+                <td>Kurskod</td>
+                <td class="course-name">Namn</td>
+                <td>Status</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let course of myCourses | filter:filterQuery">
+                <tr>
+                    <td>{{ course.courseCode }}</td>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.status }}</td>
+                    <td><input id="checkbox-{{course.courseCode}}" type=checkbox (click)= "switchStatus(course)" [checked] =  "check(course)" /> 
+                        <label for="checkbox-{{course.courseCode}}">{{ getTextStatus(course) }} </label></td>
+                    <td class="button delete center" (click)="deleteCourse(course.courseCode)">Delete</td>
+                </tr> 
+            </ng-container>
+        </tbody>
+    </table>
+</section>

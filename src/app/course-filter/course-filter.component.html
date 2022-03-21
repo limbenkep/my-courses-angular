@@ -1,0 +1,7 @@
+
+<form name="search">
+    <label>{{ searchLabel }}
+        <input class="searchTerm" type="text" #input name="searchTerm" placeholder="Filter by course code"
+        [(ngModel)]="searchTerm" (keyup)="filterCourses()" />
+    </label>
+</form>
